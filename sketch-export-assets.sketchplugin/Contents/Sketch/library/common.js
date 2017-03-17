@@ -47,7 +47,7 @@ com.geertwille = {
             if (this.baseDir.indexOf('/res') > -1 && this.type == "android") {
                 helpers.openInFinder(this.baseDir);
             } else {
-                helpers.openInFinder(this.baseDir + "/assets");
+                helpers.openInFinder(this.baseDir);
             }
         }
     },
@@ -145,9 +145,9 @@ com.geertwille = {
                fileName = this.baseDir + name + "/" + prefix + sliceName + suffix + ".png";
            } else {
                if (this.baseDir.indexOf('/res') == -1 && this.type == "android") {
-                   fileName = this.baseDir + "/assets/android/res/" + name + "/" + prefix + sliceName + suffix + ".png";
+                   fileName = this.baseDir + "/res/" + name + "/" + prefix + sliceName + suffix + ".png";
                } else {
-                   fileName = this.baseDir + "/assets/" + this.type + name + "/" + prefix + sliceName + suffix + ".png";
+                   fileName = this.baseDir + this.type + name + "/" + prefix + sliceName + suffix + ".png";
                }
            }
 
