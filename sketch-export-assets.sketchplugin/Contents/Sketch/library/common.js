@@ -44,11 +44,7 @@ com.geertwille = {
 
         // Open finder window with assets exported
         if (config['open-folder-export'] == true) {
-            if (this.baseDir.indexOf('/res') > -1 && this.type == "android") {
-                helpers.openInFinder(this.baseDir);
-            } else {
-                helpers.openInFinder(this.baseDir);
-            }
+            helpers.openInFinder(this.baseDir);
         }
     },
 
@@ -139,18 +135,9 @@ com.geertwille = {
                 prefix = ''
             }
 
-            // If we place the assets in the res folder don't place it in an assets/android folder
-
-            if (this.baseDir.indexOf('/res') > -1 && this.type == "android") {
-               fileName = this.baseDir + name + "/" + prefix + sliceName + suffix + ".png";
-           } else {
-               if (this.baseDir.indexOf('/res') == -1 && this.type == "android") {
-                   fileName = this.baseDir + "/res/" + name + "/" + prefix + sliceName + suffix + ".png";
-               } else {
-                   fileName = this.baseDir + this.type + name + "/" + prefix + sliceName + suffix + ".png";
-               }
-           }
-
+            // Place the assets in given folder
+            fileName = this.baseDir + this.type + name + "/" + prefix + sliceName + suffix + ".png";
+               
             [(com.geertwille.document) saveArtboardOrSlice: version toFile:fileName];
 
             log("Saved " + fileName);
